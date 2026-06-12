@@ -1,0 +1,50 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Game {
+  id           String   @id
+  createdAt    DateTime @default(now())
+  passwordHash String?
+  players      Player[]
+  result       Result?
+}
+
+model Player {
+  id         String      @id @default(cuid())
+  gameId     String
+  game       Game        @relation(fields: [gameId], references: [id])
+  name       String
+  prediction Prediction?
+
+  @@unique([gameId, name])
+}
+
+model Prediction {
+  id           String  @id @default(cuid())
+  playerId     String  @unique
+  player       Player  @relation(fields: [playerId], references: [id])
+  champion     String?
+  runnerUp     String?
+  koreaRound   String?
+  goldenPlayer String?
+  matchScores  Json    @default("{}")
+}
+
+model Result {
+  id                String  @id @default(cuid())
+  gameId            String  @unique
+  game              Game    @relation(fields: [gameId], references: [id])
+  champion          String?
+  runnerUp          String?
+  koreaRound        String?
+  goldenBootWinner  String?
+  goldenBallWinner  String?
+  goldenGloveWinner String?
+  matchScores       Json    @default("{}")
+}
