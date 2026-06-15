@@ -301,15 +301,25 @@ export default async function GamePage({
           <div className="space-y-1 text-xs text-gray-500">
             <div className="flex justify-between">
               <span>우승국 정확히 맞춤</span>
-              <span className="font-bold text-gray-700">10점</span>
+              <span className="font-bold text-gray-700">20점</span>
             </div>
             <div className="flex justify-between">
               <span>준우승국 정확히 맞춤</span>
-              <span className="font-bold text-gray-700">7점</span>
+              <span className="font-bold text-gray-700">10점</span>
             </div>
-            <div className="flex justify-between">
-              <span>우승/준우승 국가 순서 불일치</span>
-              <span className="font-bold text-gray-700">각 3점</span>
+            <div className="flex justify-between items-center">
+              <span className="flex items-center gap-1">
+                우승/준우승 국가 순서 불일치
+                <span className="relative group cursor-default">
+                  <span className="inline-flex items-center justify-center w-3.5 h-3.5 rounded-full bg-gray-300 text-gray-600 text-[9px] font-bold leading-none">?</span>
+                  <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-64 bg-gray-800 text-white text-xs rounded-lg px-3 py-2 hidden group-hover:block z-20 pointer-events-none shadow-lg">
+                    예: 브라질 우승·프랑스 준우승일 때<br />
+                    우승란에 프랑스, 준우승란에 다른 나라 → 5점<br />
+                    우승란에 프랑스, 준우승란에 브라질 → 5+5=10점
+                  </span>
+                </span>
+              </span>
+              <span className="font-bold text-gray-700">각 5점</span>
             </div>
             <div className="flex justify-between">
               <span>대한민국 최종순위 정확히 맞춤</span>

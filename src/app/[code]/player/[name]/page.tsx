@@ -109,7 +109,7 @@ export default function PlayerPage({
               🏆 우승/준우승 국가 예측
             </h2>
             <div className="space-y-1 text-xs text-gray-400 mb-3">
-              <p>우승 정확히: 10점 | 준우승 정확히: 7점 | 순서 불일치: 각 3점</p>
+              <p>우승 정확히: 20점 | 준우승 정확히: 10점 | 순서 불일치: 각 5점</p>
             </div>
 
             <div className="relative mb-3">
@@ -188,7 +188,7 @@ export default function PlayerPage({
                 <button
                   key={r}
                   type="button"
-                  onClick={() => setKoreaRound(r)}
+                  onClick={() => setKoreaRound(koreaRound === r ? "" : r)}
                   className={`py-2 rounded-lg text-sm font-medium border transition ${
                     koreaRound === r
                       ? "bg-blue-600 text-white border-blue-600"

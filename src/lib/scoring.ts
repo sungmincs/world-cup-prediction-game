@@ -39,17 +39,17 @@ export function calculateScore(
   // Champion/Runner-up scoring
   if (prediction.champion && result.champion && result.runnerUp) {
     if (prediction.champion === result.champion) {
-      champion = 10;
+      champion = 20;
     } else if (prediction.champion === result.runnerUp) {
-      champion = 3;
+      champion = 5;
     }
   }
 
   if (prediction.runnerUp && result.champion && result.runnerUp) {
     if (prediction.runnerUp === result.runnerUp) {
-      runnerUp = 7;
+      runnerUp = 10;
     } else if (prediction.runnerUp === result.champion) {
-      runnerUp = 3;
+      runnerUp = 5;
     }
   }
 

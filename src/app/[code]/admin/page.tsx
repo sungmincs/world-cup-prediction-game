@@ -121,7 +121,7 @@ export default function AdminPage({
                 <button
                   key={r}
                   type="button"
-                  onClick={() => setKoreaRound(r)}
+                  onClick={() => setKoreaRound(koreaRound === r ? "" : r)}
                   className={`py-2 rounded-lg text-sm font-medium border transition ${
                     koreaRound === r
                       ? "bg-red-500 text-white border-red-500"
